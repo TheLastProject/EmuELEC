@@ -10,6 +10,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get -y upgrade
       - name: Install dependencies
         run: sudo apt-get install -y gcc make git unzip wget xz-utils libsdl2-dev libsdl2-mixer-dev libfreeimage-dev libfreetype6-dev libcurl4-openssl-dev rapidjson-dev libasound2-dev libgl1-mesa-dev build-essential libboost-all-dev cmake fonts-droid-fallback libvlc-dev libvlccore-dev vlc-bin texinfo premake4 golang libssl-dev curl patchelf
+      - name: Checkout EmuELEC
+        uses: actions/checkout@v2
       - name: Build Amlogic
         run: PROJECT=Amlogic ARCH=arm DISTRO=EmuELEC make image
       - name: List files
